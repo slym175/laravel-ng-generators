@@ -101,7 +101,7 @@ class AngularComponent extends Command
 
         if (config('generators.misc.auto_import') && !$this->option('no-import')) {
             $components = file_get_contents($components_index);
-            $componentName = Str::lcfirst($studly_name);
+            $componentName = lcfirst($studly_name);
             $newComponent = "\r\n\t.component('$componentName', {$studly_name}Component)";
             $components = str_replace($module, $module.$newComponent, $components);
             $components = 'import {'.$studly_name."Component} from './app/components/{$name}/{$name}.component';\n".$components;

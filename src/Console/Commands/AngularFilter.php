@@ -78,7 +78,7 @@ class AngularFilter extends Command
 
         if (config('generators.misc.auto_import') && !$this->option('no-import')) {
             $filters = file_get_contents($filters_index);
-            $filterName = Str::lcfirst($studly_name);
+            $filterName = lcfirst($studly_name);
             $newFilters = "\r\n\t.filter('$filterName', {$studly_name}Filter)";
             $filters = str_replace($module, $module.$newFilters, $filters);
             $filters = 'import {'.$studly_name."Filter} from './filters/{$name}.filter';\n".$filters;
