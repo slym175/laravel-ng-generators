@@ -9,7 +9,8 @@
         }
     ],
     "require-dev": {
-        "illuminate/console": "dev-master"
+        "illuminate/console": "dev-master",
+        "illuminate/support": "dev-master"
     },
     "autoload": {
         "psr-4": {

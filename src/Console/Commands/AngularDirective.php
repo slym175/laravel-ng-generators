@@ -4,6 +4,7 @@ namespace Studio3s\Generators\Console\Commands;
 
 use File;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 class AngularDirective extends Command
 {
@@ -41,7 +42,7 @@ class AngularDirective extends Command
     public function handle()
     {
         $name = $this->argument('name');
-        $studly_name = studly_case($name);
+        $studly_name = Str::studly($name);
         $ng_directive = str_replace('_', '-', $name);
 
         $js = file_get_contents(__DIR__.'/Stubs/AngularDirective/directive.js.stub');

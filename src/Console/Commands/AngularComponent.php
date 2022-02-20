@@ -4,6 +4,7 @@ namespace Studio3s\Generators\Console\Commands;
 
 use File;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 class AngularComponent extends Command
 {
@@ -41,7 +42,7 @@ class AngularComponent extends Command
     public function handle()
     {
         $name = $this->argument('name');
-        $studly_name = studly_case($name);
+        $studly_name = Str::studly($name);
         $ng_component = str_replace('_', '-', $name);
 
         $html = file_get_contents(__DIR__.'/Stubs/AngularComponent/component.html.stub');
@@ -100,7 +101,7 @@ class AngularComponent extends Command
 
         if (config('generators.misc.auto_import') && !$this->option('no-import')) {
             $components = file_get_contents($components_index);
-            $componentName = lcfirst($studly_name);
+            $componentName = Str::lcfirst($studly_name);
             $newComponent = "\r\n\t.component('$componentName', {$studly_name}Component)";
             $components = str_replace($module, $module.$newComponent, $components);
             $components = 'import {'.$studly_name."Component} from './app/components/{$name}/{$name}.component';\n".$components;

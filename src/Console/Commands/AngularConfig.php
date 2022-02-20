@@ -4,6 +4,7 @@ namespace Studio3s\Generators\Console\Commands;
 
 use File;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 class AngularConfig extends Command
 {
@@ -41,7 +42,7 @@ class AngularConfig extends Command
     public function handle()
     {
         $name = $this->argument('name');
-        $studly_name = studly_case($name);
+        $studly_name = Str::studly($name);
 
         $js = file_get_contents(__DIR__.'/Stubs/AngularConfig/config.js.stub');
 
