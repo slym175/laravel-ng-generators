@@ -1,0 +1,20 @@
+{
+    "name": "studio3s/ng-generators",
+    "description": "Angular generators for Artisan",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Studio3S",
+            "email": "thuyhu9876@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "illuminate/console": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Studio3s\\Generators\\": "src"
+        }
+    },
+    "minimum-stability": "dev"
+}
